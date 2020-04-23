@@ -6,59 +6,79 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <AnchorPane fx:id="insertMoneyPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
-         <children>
-            <TextField fx:id="InsertMoneyEmployeeIdTF" layoutX="88.0" layoutY="82.0" promptText="Enter Employee ID" />
-            <TextField fx:id="InsertMoneyAmountTF" layoutX="88.0" layoutY="176.0" promptText="Enter Amount" />
-            <Label fx:id="InsertMoneyCompleted" layoutX="111.0" layoutY="346.0" prefHeight="31.0" prefWidth="194.0" />
-            <Button fx:id="InsertMoneyToBalanceButton" layoutX="85.0" layoutY="277.0" mnemonicParsing="false" onAction="#insertMoney" text="Insert" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="checkProductInfoPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
-         <children>
-            <TextField fx:id="insertFoodIDTF" layoutX="50.0" layoutY="60.0" promptText="Enter Food ID " />
-            <TextArea fx:id="productInfoTA" layoutX="43.0" layoutY="163.0" prefHeight="255.0" prefWidth="250.0" />
-            <Button fx:id="getProductInfoButton" layoutX="50.0" layoutY="121.0" mnemonicParsing="false" onAction="#getInfo" prefHeight="25.0" prefWidth="149.0" text="Get Info" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="checkBalancePane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
-         <children>
-            <TextField fx:id="balanceEmployeeIDTF" layoutX="183.0" layoutY="87.0" promptText="Enter Employee ID" />
-            <Button fx:id="getBalanceButton" layoutX="186.0" layoutY="150.0" mnemonicParsing="false" onAction="#checkBalance" prefHeight="31.0" prefWidth="169.0" text="Show Balance in DKK" />
-            <Label fx:id="checkBalanceLabel" layoutX="149.0" layoutY="231.0" prefHeight="31.0" prefWidth="200.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="manageStockPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
-         <children>
-            <TextField fx:id="manageStockFoodIDTF" layoutX="51.0" layoutY="45.0" promptText="Enter Food ID" />
-            <TextField fx:id="manageStockAmountTF" layoutX="51.0" layoutY="108.0" promptText="Enter Wished Stock Level" />
-            <Button fx:id="manageStockConfirmButton" layoutX="76.0" layoutY="168.0" mnemonicParsing="false" onAction="#setMinStock" prefHeight="31.0" prefWidth="75.0" text="Confirm" />
-            <Label fx:id="manageStockLabel" layoutX="37.0" layoutY="273.0" prefHeight="31.0" prefWidth="280.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="payForFoodPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
-         <children>
-            <Button fx:id="banana" layoutX="31.0" layoutY="106.0" mnemonicParsing="false" onAction="#bananaAdded" prefHeight="53.0" prefWidth="109.0" text="Banana  5 kr" />
-            <Button fx:id="pizza" layoutX="154.0" layoutY="106.0" mnemonicParsing="false" onAction="#pizzaAdded" prefHeight="53.0" prefWidth="99.0" text="Pizza 30 kr" />
-            <Button fx:id="salsa" layoutX="266.0" layoutY="106.0" mnemonicParsing="false" onAction="#chickenSalsaAdded" prefHeight="53.0" prefWidth="149.0" text="Chicken Salsa 5 Kr" />
-            <Button fx:id="ice" layoutX="422.0" layoutY="106.0" mnemonicParsing="false" onAction="#iceAdded" prefHeight="53.0" prefWidth="99.0" text="Ice 20 kr" />
-            <Button fx:id="payFood" layoutX="226.0" layoutY="356.0" mnemonicParsing="false" onAction="#payForFood" prefHeight="31.0" prefWidth="68.0" text="Pay" />
-            <TextField fx:id="employeePayID" layoutX="11.0" layoutY="321.0" prefHeight="31.0" prefWidth="200.0" promptText="Employee ID:" />
-            <Label layoutX="337.0" layoutY="352.0" prefHeight="31.0" prefWidth="149.0" />
-            <Label fx:id="totalPaid" layoutX="14.0" layoutY="357.0" prefHeight="31.0" prefWidth="200.0" text="0" />
-            <Label fx:id="transactionLabel" layoutX="312.0" layoutY="357.0" prefHeight="31.0" prefWidth="194.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="65.0" prefWidth="544.0">
-         <children>
-            <Button fx:id="insertMoneyButton" mnemonicParsing="false" onAction="#insertMoneyVisible" prefHeight="71.0" prefWidth="119.0" text="Insert Money" />
-            <Button fx:id="checkProductInfoButton" layoutX="119.0" mnemonicParsing="false" onAction="#checkProductInfoVisible" prefHeight="71.0" prefWidth="109.0" text="ProductInfo" />
-            <Button fx:id="checkBalanceButton" layoutX="227.0" mnemonicParsing="false" onAction="#checkBalanceVisible" prefHeight="71.0" prefWidth="109.0" text="checkBalance" />
-            <Button fx:id="payForFoodButton" layoutX="432.0" mnemonicParsing="false" onAction="#payForFoodVisible" prefHeight="71.0" prefWidth="109.0" text="payForFood" />
-            <Button fx:id="manageStockButton" layoutX="336.0" mnemonicParsing="false" onAction="#manageStockVisible" prefHeight="71.0" prefWidth="109.0" text="SetMinStock" />
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0"
+            prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+    <children>
+        <AnchorPane fx:id="insertMoneyPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
+            <children>
+                <TextField fx:id="InsertMoneyEmployeeIdTF" layoutX="88.0" layoutY="82.0"
+                           promptText="Enter Employee ID"/>
+                <TextField fx:id="InsertMoneyAmountTF" layoutX="88.0" layoutY="176.0" promptText="Enter Amount"/>
+                <Label fx:id="InsertMoneyCompleted" layoutX="111.0" layoutY="346.0" prefHeight="31.0"
+                       prefWidth="194.0"/>
+                <Button fx:id="InsertMoneyToBalanceButton" layoutX="85.0" layoutY="277.0" mnemonicParsing="false"
+                        onAction="#insertMoney" text="Insert"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="checkProductInfoPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
+            <children>
+                <TextField fx:id="insertFoodIDTF" layoutX="50.0" layoutY="60.0" promptText="Enter Food ID "/>
+                <TextArea fx:id="productInfoTA" layoutX="43.0" layoutY="163.0" prefHeight="255.0" prefWidth="250.0"/>
+                <Button fx:id="getProductInfoButton" layoutX="50.0" layoutY="121.0" mnemonicParsing="false"
+                        onAction="#getInfo" prefHeight="25.0" prefWidth="149.0" text="Get Info"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="checkBalancePane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
+            <children>
+                <TextField fx:id="balanceEmployeeIDTF" layoutX="183.0" layoutY="87.0" promptText="Enter Employee ID"/>
+                <Button fx:id="getBalanceButton" layoutX="186.0" layoutY="150.0" mnemonicParsing="false"
+                        onAction="#checkBalance" prefHeight="31.0" prefWidth="169.0" text="Show Balance in DKK"/>
+                <Label fx:id="checkBalanceLabel" layoutX="149.0" layoutY="231.0" prefHeight="31.0" prefWidth="200.0"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="manageStockPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
+            <children>
+                <TextField fx:id="manageStockFoodIDTF" layoutX="51.0" layoutY="45.0" promptText="Enter Food ID"/>
+                <TextField fx:id="manageStockAmountTF" layoutX="51.0" layoutY="108.0"
+                           promptText="Enter Wished Stock Level"/>
+                <Button fx:id="manageStockConfirmButton" layoutX="76.0" layoutY="168.0" mnemonicParsing="false"
+                        onAction="#setMinStock" prefHeight="31.0" prefWidth="75.0" text="Confirm"/>
+                <Label fx:id="manageStockLabel" layoutX="37.0" layoutY="273.0" prefHeight="31.0" prefWidth="280.0"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="payForFoodPane" layoutY="71.0" prefHeight="430.0" prefWidth="540.0" visible="false">
+            <children>
+                <Button fx:id="banana" layoutX="31.0" layoutY="106.0" mnemonicParsing="false" onAction="#bananaAdded"
+                        prefHeight="53.0" prefWidth="109.0" text="Banana  5 kr"/>
+                <Button fx:id="pizza" layoutX="154.0" layoutY="106.0" mnemonicParsing="false" onAction="#pizzaAdded"
+                        prefHeight="53.0" prefWidth="99.0" text="Pizza 30 kr"/>
+                <Button fx:id="salsa" layoutX="266.0" layoutY="106.0" mnemonicParsing="false"
+                        onAction="#chickenSalsaAdded" prefHeight="53.0" prefWidth="149.0" text="Chicken Salsa 5 Kr"/>
+                <Button fx:id="ice" layoutX="422.0" layoutY="106.0" mnemonicParsing="false" onAction="#iceAdded"
+                        prefHeight="53.0" prefWidth="99.0" text="Ice 20 kr"/>
+                <Button fx:id="payFood" layoutX="226.0" layoutY="356.0" mnemonicParsing="false" onAction="#payForFood"
+                        prefHeight="31.0" prefWidth="68.0" text="Pay"/>
+                <TextField fx:id="employeePayID" layoutX="11.0" layoutY="321.0" prefHeight="31.0" prefWidth="200.0"
+                           promptText="Employee ID:"/>
+                <Label layoutX="337.0" layoutY="352.0" prefHeight="31.0" prefWidth="149.0"/>
+                <Label fx:id="totalPaid" layoutX="14.0" layoutY="357.0" prefHeight="31.0" prefWidth="200.0" text="0"/>
+                <Label fx:id="transactionLabel" layoutX="312.0" layoutY="357.0" prefHeight="31.0" prefWidth="194.0"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="65.0" prefWidth="544.0">
+            <children>
+                <Button fx:id="insertMoneyButton" mnemonicParsing="false" onAction="#insertMoneyVisible"
+                        prefHeight="71.0" prefWidth="119.0" text="Insert Money"/>
+                <Button fx:id="checkProductInfoButton" layoutX="119.0" mnemonicParsing="false"
+                        onAction="#checkProductInfoVisible" prefHeight="71.0" prefWidth="109.0" text="ProductInfo"/>
+                <Button fx:id="checkBalanceButton" layoutX="227.0" mnemonicParsing="false"
+                        onAction="#checkBalanceVisible" prefHeight="71.0" prefWidth="109.0" text="checkBalance"/>
+                <Button fx:id="payForFoodButton" layoutX="432.0" mnemonicParsing="false" onAction="#payForFoodVisible"
+                        prefHeight="71.0" prefWidth="109.0" text="payForFood"/>
+                <Button fx:id="manageStockButton" layoutX="336.0" mnemonicParsing="false" onAction="#manageStockVisible"
+                        prefHeight="71.0" prefWidth="109.0" text="SetMinStock"/>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

@@ -17,13 +17,13 @@ import java.util.Properties;
 public class Controller {
 
     @FXML
-    public TextField manageStockFoodIDTF, manageStockAmountTF,insertFoodIDTF,balanceEmployeeIDTF,InsertMoneyEmployeeIdTF, InsertMoneyAmountTF,employeePayID;
+    public TextField manageStockFoodIDTF, manageStockAmountTF, insertFoodIDTF, balanceEmployeeIDTF, InsertMoneyEmployeeIdTF, InsertMoneyAmountTF, employeePayID;
 
     @FXML
-    public Button banana,pizza,salsa,ice,insertMoneyButton,payFood, checkProductInfoButton, checkBalanceButton, payForFoodButton, manageStockButton,getBalanceButton,InsertMoneyToBalanceButton;
+    public Button banana, pizza, salsa, ice, insertMoneyButton, payFood, checkProductInfoButton, checkBalanceButton, payForFoodButton, manageStockButton, getBalanceButton, InsertMoneyToBalanceButton;
 
     @FXML
-    public Label manageStockLabel, transactionLabel, checkBalanceLabel,InsertMoneyCompleted,totalPaid;
+    public Label manageStockLabel, transactionLabel, checkBalanceLabel, InsertMoneyCompleted, totalPaid;
 
     @FXML
     public TextArea productInfoTA;
@@ -32,9 +32,8 @@ public class Controller {
     AnchorPane insertMoneyPane, checkProductInfoPane, checkBalancePane, manageStockPane, payForFoodPane;
 
 
-
     // Get product info
-    public void getInfo(){
+    public void getInfo() {
 
 
         Products info = new Products();
@@ -42,7 +41,7 @@ public class Controller {
         int foodID = Integer.parseInt(insertFoodIDTF.getText());
 
 
-        info.getInfo(foodID,productInfoTA);
+        info.getInfo(foodID, productInfoTA);
 
     }
 
@@ -52,7 +51,7 @@ public class Controller {
         int minStock = Integer.parseInt(manageStockAmountTF.getText());
         int foodID = Integer.parseInt(manageStockFoodIDTF.getText());
         Products stock = new Products();
-        stock.setMinStock(minStock,foodID);
+        stock.setMinStock(minStock, foodID);
 
         manageStockLabel.setText("Minimum stock allowed is now : " + minStock);
 
@@ -60,13 +59,13 @@ public class Controller {
     }
 
     // Check the balance of an employee
-    public void checkBalance(){
+    public void checkBalance() {
 
 
         IDCard idCardID = new IDCard(Integer.parseInt(balanceEmployeeIDTF.getText()));
 
 
-        checkBalanceLabel.setText("Balance:   "+ idCardID.getBalance());
+        checkBalanceLabel.setText("Balance:   " + idCardID.getBalance());
 
 
     }
@@ -83,20 +82,20 @@ public class Controller {
     }
 
     // Add banana price to basket
-    public void bananaAdded(){
+    public void bananaAdded() {
 
-    Payment addBasket = new Payment();
-    addBasket.addToBasket(4,totalPaid);
+        Payment addBasket = new Payment();
+        addBasket.addToBasket(4, totalPaid);
 
-    addBasket.autoOrder(4);
+        addBasket.autoOrder(4);
 
 
     }
 
     // Add pizza price to basket
-    public void pizzaAdded(){
+    public void pizzaAdded() {
         Payment addBasket = new Payment();
-        addBasket.addToBasket(3,totalPaid);
+        addBasket.addToBasket(3, totalPaid);
 
         addBasket.autoOrder(3);
 
@@ -104,30 +103,30 @@ public class Controller {
     }
 
     // Add chicken salsa price to basket
-    public void chickenSalsaAdded(){
+    public void chickenSalsaAdded() {
 
         Payment addBasket = new Payment();
-        addBasket.addToBasket(2,totalPaid);
+        addBasket.addToBasket(2, totalPaid);
 
         addBasket.autoOrder(2);
 
     }
 
     // Add ice price to basket
-    public void iceAdded(){
+    public void iceAdded() {
 
         Payment addBasket = new Payment();
-        addBasket.addToBasket(1,totalPaid);
+        addBasket.addToBasket(1, totalPaid);
 
         addBasket.autoOrder(1);
 
     }
 
     // Paying for food
-    public void payForFood(){
+    public void payForFood() {
 
         Payment payment = new Payment();
-        payment.pay(totalPaid,transactionLabel,employeePayID);
+        payment.pay(totalPaid, transactionLabel, employeePayID);
 
 
     }
@@ -139,7 +138,6 @@ public class Controller {
         checkBalancePane.setVisible(false);
         manageStockPane.setVisible(false);
         payForFoodPane.setVisible(false);
-
 
 
     }

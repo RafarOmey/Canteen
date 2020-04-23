@@ -36,7 +36,7 @@ public class Payment {
     }
 
 
-    public void addToBasket(int foodID, Label label){
+    public void addToBasket(int foodID, Label label) {
         try {
 
             con = DriverManager.getConnection("jdbc:sqlserver://localhost:" + port + ";databaseName=" + databaseName, userName, password);  // to hide the password in file.
@@ -44,13 +44,11 @@ public class Payment {
 
             Statement state = con.createStatement();
 
-            ResultSet rs = state.executeQuery("SELECT fldSellPrice FROM  tblProducts where fldFoodID = "+foodID+""); // Statement to get sell price for banana
+            ResultSet rs = state.executeQuery("SELECT fldSellPrice FROM  tblProducts where fldFoodID = " + foodID + ""); // Statement to get sell price for banana
 
 
-
-
-            while(rs.next()){
-                double totalPrice= Double.parseDouble(label.getText());
+            while (rs.next()) {
+                double totalPrice = Double.parseDouble(label.getText());
 
                 double hello = rs.getDouble(1);
 
@@ -61,10 +59,8 @@ public class Payment {
             } //Adding the price to the total price
 
 
-
             // (5) close the connection
             con.close();
-
 
 
         } catch (SQLException e) {
@@ -72,10 +68,10 @@ public class Payment {
         }
     }
 
-    public void autoOrder(int foodID){
+    public void autoOrder(int foodID) {
         try {
-            int minimum=0;
-            int current=0;
+            int minimum = 0;
+            int current = 0;
             con = DriverManager.getConnection("jdbc:sqlserver://localhost:" + port + ";databaseName=" + databaseName, userName, password);  // to hide the password in file.
 
             Statement state2 = con.createStatement();
@@ -83,36 +79,34 @@ public class Payment {
             Statement currentStock = con.createStatement();
 
 
-            ResultSet rs2 = currentStock.executeQuery("select fldCurrentStockLevel from tblProducts where fldFoodID="+foodID+""); //Get current stock statement
+            ResultSet rs2 = currentStock.executeQuery("select fldCurrentStockLevel from tblProducts where fldFoodID=" + foodID + ""); //Get current stock statement
 
-            while(rs2.next()){
+            while (rs2.next()) {
 
-                current=rs2.getInt(1)-1;
-
+                current = rs2.getInt(1) - 1;
 
 
             }
 
-            ResultSet rs3 = minStock.executeQuery("select fldMinimumStock from tblProducts where fldFoodID="+foodID+""); // Statement to get minimum stock
+            ResultSet rs3 = minStock.executeQuery("select fldMinimumStock from tblProducts where fldFoodID=" + foodID + ""); // Statement to get minimum stock
 
-            while(rs3.next()){
+            while (rs3.next()) {
 
-                minimum=rs3.getInt(1);
+                minimum = rs3.getInt(1);
 
             }
 
 
-            if(current<minimum){
+            if (current < minimum) {
                 Statement autoOrder = con.createStatement();
 
-                autoOrder.executeUpdate("update tblProducts set fldCurrentStockLevel=fldCurrentStockLevel+30 where fldFoodID="+foodID+"");
+                autoOrder.executeUpdate("update tblProducts set fldCurrentStockLevel=fldCurrentStockLevel+30 where fldFoodID=" + foodID + "");
             } // Auto order when current stock is less than minimum stock
 
-            state2.executeUpdate("UPDATE tblProducts set fldCurrentStockLevel=fldCurrentStockLevel-1 where fldFoodID ="+foodID+""); // Taking 1 away from current stock
+            state2.executeUpdate("UPDATE tblProducts set fldCurrentStockLevel=fldCurrentStockLevel-1 where fldFoodID =" + foodID + ""); // Taking 1 away from current stock
 
             // (5) close the connection
             con.close();
-
 
 
         } catch (SQLException e) {
@@ -121,7 +115,7 @@ public class Payment {
 
     }
 
-    public void pay(Label totalPaid, Label transactionLabel, TextField employeePayID){
+    public void pay(Label totalPaid, Label transactionLabel, TextField employeePayID) {
         try {
             con = DriverManager.getConnection("jdbc:sqlserver://localhost:" + port + ";databaseName=" + databaseName, userName, password);  // to hide the password in file.
 
@@ -131,10 +125,10 @@ public class Payment {
             long millis = System.currentTimeMillis();
             java.sql.Timestamp timestamp = new java.sql.Timestamp(millis);
 
-            String totalPrice=totalPaid.getText();
-            int employeeID= Integer.parseInt(employeePayID.getText());
+            String totalPrice = totalPaid.getText();
+            int employeeID = Integer.parseInt(employeePayID.getText());
 
-            if(employeeID==1111||employeeID==2222||employeeID==3333||employeeID==4444||employeeID==5555) {
+            if (employeeID == 1111 || employeeID == 2222 || employeeID == 3333 || employeeID == 4444 || employeeID == 5555) {
                 state.executeUpdate("UPDATE tblCard set fldBalance=fldBalance-" + totalPrice + "where fldEmployeeID=" + employeeID + "");
 
                 transactionLabel.setText("Transaction complete");
@@ -146,7 +140,7 @@ public class Payment {
                 totalPaid.setText("0");
                 employeePayID.setText("");
 
-            }else {
+            } else {
                 transactionLabel.setText("EmployeeID not found");
             }
 

@@ -38,7 +38,7 @@ public class IDCard {
     private double balance;
 
 
-    public double getBalance(){
+    public double getBalance() {
 
         try {
             con = DriverManager.getConnection("jdbc:sqlserver://localhost:" + port + ";databaseName=" + databaseName, userName, password);  // to hide the password in file.
@@ -63,12 +63,10 @@ public class IDCard {
 
         return balance;
     }
+
     public IDCard(int employeeID) {
 
         this.employeeID = employeeID;
-
-
-
 
 
     }
@@ -79,10 +77,7 @@ public class IDCard {
             Statement stmt = con.createStatement();
 
 
-
-
-            stmt.executeUpdate("Update tblCard set fldBalance = fldBalance +"+insertToBalance+" where fldEmployeeID =" + employeeID +"" );
-
+            stmt.executeUpdate("Update tblCard set fldBalance = fldBalance +" + insertToBalance + " where fldEmployeeID =" + employeeID + "");
 
 
             con.close();
@@ -92,7 +87,6 @@ public class IDCard {
             e.printStackTrace();
 
         }
-
 
 
     }
