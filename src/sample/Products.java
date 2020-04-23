@@ -1,6 +1,6 @@
 package sample;
 
-import javafx.fxml.FXML;
+
 import javafx.scene.control.TextArea;
 
 import java.io.FileInputStream;
